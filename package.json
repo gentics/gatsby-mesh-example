@@ -1,19 +1,19 @@
 {
   "version": "1.0.0",
-  "name": "gatsby-graphcms-example",
-  "description": "Gatsby example site using the GraphCMS source plugin",
+  "name": "gatsby-mesh-example",
+  "description": "Gatsby example site using the headless CMS Gentics Mesh source plugin",
   "keywords": [
     "data",
     "example",
     "gatsby",
-    "graphcms",
+    "genticsmesh",
     "graphql",
     "source"
   ],
-  "homepage": "https://github.com/GraphCMS/gatsby-graphcms-example",
+  "homepage": "https://github.com/gentics/gatsby-mesh-example",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GraphCMS/gatsby-graphcms-example.git"
+    "url": "https://github.com/gentics/gatsby-mesh-example.git"
   },
   "license": "MIT",
   "author": "Rafael Cordones <rafael@cordones.me>",
@@ -23,7 +23,7 @@
     "gatsby-plugin-manifest": "1.0.12",
     "gatsby-plugin-offline": "1.0.12",
     "gatsby-plugin-react-helmet": "2.0.3",
-    "gatsby-source-graphcms": "0.0.1",
+    "gatsby-source-mesh": "0.0.1",
     "react-helmet": "5.2.0",
     "react-markdown": "3.1.4",
     "react-star-rating-component": "1.3.0"

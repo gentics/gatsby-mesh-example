@@ -5,22 +5,16 @@ import Link from 'gatsby-link'
 
 class IndexPage extends Component {
   render() {
-    const artists = this.props.data.artists.edges
-    const records = this.props.data.records.edges
-    const reviews = this.props.data.reviews.edges
-
-    console.log(`artists: `, artists)
-    console.log(`records: `, records)
-    console.log(`reviews: `, reviews)
+    const vehicles = this.props.data.vehicles.edges;
+    const categories = this.props.data.categories.edges;
 
     return (
       <div>
-        <section className="artists">
+        <section className="vehicles">
           <p>
-            Welcome to your new Gatsby example site using the GraphCMS source
-            plugin.
+            Welcome to your new Gatsby example site using the Gentics Mesh source plugin.
           </p>
-          <h2>Artists</h2>
+          <h2>Vehicles</h2>
           <nav>
             <ul
               style={{
@@ -28,7 +22,7 @@ class IndexPage extends Component {
                 margin: '0 0 2rem',
               }}
             >
-              {artists.map(({ node }, i) => (
+              {vehicles.map(({ node }, i) => (
                 <li key={node.id + `nav`}>
                   <h4>
                     <Link to={`#${node.slug}`}>{node.name}</Link>
@@ -38,18 +32,20 @@ class IndexPage extends Component {
             </ul>
           </nav>
 
-          {artists.map(({ node }, i) => (
+          {vehicles.map(({ node }, i) => (
             <article key={node.id}>
-              <h3 id={node.slug}>{node.name}</h3>
+              <h3 id={node.data.slug}>{node.data.name}</h3>
               <figure>
                 <img
-                  src={`https://media.graphcms.com/resize=w:512,h:512,a:top,fit:crop/${
-                    node.picture.handle
-                  }`}
-                  alt={node.name}
-                  title={node.name}
+                  src={`https://demo.getmesh.io/api/v1/demo/webroot${
+                    node.data.vehicleImage.path
+                  }?w=725&h=512&fpx=0.25&fpy=0.5&crop=fp`}
+                  alt={node.data.name}
+                  title={node.data.name}
                   width="256"
                 />
+                <p>{node.data.description}</p>
+                <p>Weight: {node.data.weight} kg</p>
                 <figcaption>
                   <small
                     style={{
@@ -58,10 +54,10 @@ class IndexPage extends Component {
                     }}
                   >
                     <a
-                      href={`https://media.graphcms.com/${node.picture.handle}`}
+                      href={`https://demo.getmesh.io/api/v1/demo/webroot/${node.data.vehicleImage.path}`}
                     >
-                      full-size, hi-res photo: ({node.picture.width} W &times;{' '}
-                      {node.picture.height} H)
+                      full-size, hi-res photo: ({node.data.vehicleImage.fields.image.width} W &times;{' '}
+                      {node.data.vehicleImage.fields.image.height} H)
                     </a>
                   </small>
                 </figcaption>
@@ -69,115 +65,34 @@ class IndexPage extends Component {
               <ul
                 style={{
                   listStyle: 'none',
-                  margin: '0 0 3rem',
+                  margin: '0 0 2rem',
                 }}
               >
-                {node.records.map((record, i) => (
-                  <li key={record.id}>
-                    <h4>
-                      <p>
-                        <Link to={`#${record.slug}`}>{record.title}</Link>
-                      </p>
-                    </h4>
-                  </li>
-                ))}
               </ul>
             </article>
           ))}
         </section>
-        <section className="records">
-          <h2>Records</h2>
-          {records.map(({ node }, i) => (
+        <section className="categories">
+          <h2>Categories</h2>
+          {categories.map(({ node }, i) => (
             <article
-              id={node.slug}
+              id={node.data.slug}
               key={node.id}
               style={{
                 marginBottom: '3rem',
               }}
             >
               <figure>
-                <img
-                  src={`https://media.graphcms.com/resize=w:512,h:512,a:top,fit:crop/${
-                    node.cover.handle
-                  }`}
-                  alt={node.title}
-                  title={node.title}
-                  width="256"
-                />
                 <figcaption>
-                  <h3>{node.title}</h3>
+                  <h3>{node.data.name}</h3>
                 </figcaption>
-                {node.artist ? (
+                {node.childrenNodes.map((vehicle, i) => (
                   <p>
-                    <Link to={`#${node.artist.slug}`}>{node.artist.name}</Link>
+                    <Link to={`#${vehicle.data.slug}`}>{vehicle.data.name}</Link>
                   </p>
-                ) : (
-                  <p>(Compilation album, various artists)</p>
-                )}
-                {node.tracks.map((track, i) => (
-                  <h6 key={track.id}>
-                    {track.title}{' '}
-                    {new Date(1000 * track.aliasedLength)
-                      .toISOString()
-                      .substr(14, 5)}
-                  </h6>
                 ))}
               </figure>
-              {node.reviews.map((review, i) => (
-                <p key={review.id}>
-                  <Link to={`#${review.slug}`}>{review.title}</Link>
-                </p>
-              ))}
-            </article>
-          ))}
-        </section>
-        <section className="reviews">
-          <h2>Reviews</h2>
-          {reviews.map(({ node }, i) => (
-            <article
-              key={node.id}
-              style={{
-                marginBottom: '3rem',
-              }}
-            >
-              <h3 id={node.slug}>{node.title}</h3>
-              <p>
-                for <Link to={`#${node.record.slug}`}>{node.record.title}</Link>{' '}
-                by{' '}
-                <Link to={`#${node.record.artist.slug}`}>
-                  {node.record.artist.name}
-                </Link>
-              </p>
-              {node.rating && (
-                <div
-                  className="star-wrapper"
-                  style={{
-                    fontSize: '1.5rem',
-                    marginBottom: '1rem',
-                  }}
-                >
-                  <StarRatingComponent
-                    name="Rating"
-                    className="rating"
-                    starCount={5}
-                    value={node.rating}
-                    editing={false}
-                  />
-                </div>
-              )}
-              {node.review && (
-                <div>
-                  <Markdown source={node.review} escapeHtml={false} />
-                </div>
-              )}
-              {node.comments.length ? (
-                <div>
-                  <h6>Comments</h6>
-                  {node.comments.map((comment, i) => (
-                    <p key={comment.body}>{comment.body}</p>
-                  ))}
-                </div>
-              ) : null}
+             
             </article>
           ))}
         </section>
@@ -189,76 +104,45 @@ class IndexPage extends Component {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query getAllArtistsRecordsReviews {
-    artists: allArtists {
-      edges {
-        node {
-          id
+query getAllVehiclesCategories {
+  vehicles: allNodes(filter: {schema: {name: {eq: "vehicle"}}}) {
+    edges {
+      node {
+        data {
+          slug
           name
-          slug
-          picture {
-            id
-            handle
-            width
-            height
-          }
-          records {
-            id
-            slug
-            title
-          }
-        }
-      }
-    }
-    records: allRecords {
-      edges {
-        node {
-          id
-          slug
-          title
-          artist {
-            id
-            slug
-            name
-          }
-          tracks {
-            id
-            title
-            aliasedLength
-          }
-          cover {
-            handle
-          }
-          reviews {
-            id
-            slug
-            title
-          }
-        }
-      }
-    }
-    reviews: allReviews {
-      edges {
-        node {
-          id
-          slug
-          createdAt
-          record {
-            slug
-            title
-            artist {
-              slug
-              name
+          description
+          weight
+          vehicleImage {
+            uuid
+            path
+            fields {
+              image {
+                width
+                height
+              }
             }
-          }
-          title
-          review
-          rating
-          comments {
-            body
           }
         }
       }
     }
   }
+  categories: allNodes(filter: {schema: {name: {eq: "category"}}}) {
+    edges {
+      node {
+        childrenNodes {
+          id
+          data {
+            name
+            slug
+          }
+        }
+        data {
+          slug
+          name
+        }
+      }
+    }
+  }
+}
 `

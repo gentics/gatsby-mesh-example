@@ -27,7 +27,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby GraphCMS Example
+          Gatsby Mesh Example
         </Link>
       </h1>
     </div>
@@ -37,10 +37,10 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby GraphCMS Example"
+      title="Gatsby Mesh Example"
       meta={[
-        { name: 'description', content: 'Gatsby GraphCMS Example' },
-        { name: 'keywords', content: 'gatsby, graphcms, example' },
+        { name: 'description', content: 'Gatsby Mesh Example' },
+        { name: 'keywords', content: 'gatsby, genticsmesh, example' },
       ]}
     />
     <Header />

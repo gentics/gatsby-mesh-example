@@ -1,71 +1,118 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby with GraphCMS`,
+    title: `Gatsby with Gentics Mesh`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-graphcms`,
+      resolve: `gatsby-source-mesh`,
       options: {
-        endpoint: `https://api.graphcms.com/simple/v1/vinylbase`,
+        endpoint: `https://demo.getmesh.io/api/v1/demo/graphql`,
         query: `{
-          allArtists {
-            id
-            slug
-            name
-            picture {
-              id
-              handle
-              width
-              height
-            }
-            records {
-              id
-              slug
-              title
+          users {
+            elements {
+              uuid
+              username
+              lastname
+              firstname
+              created
+              edited
+              etag
             }
           }
-          allRecords(orderBy: createdAt_DESC) {
-            id
-            slug
-            title
-            artist {
-              id
-              slug
+          groups {
+            elements {
+              uuid
               name
-            }
-            createdAt
-            tracks {
-              id
-              title
-              aliasedLength: length
-            }
-            cover {
-              handle
-            }
-            reviews {
-              id
-              slug
-              title
+              created
+              edited
+              etag
             }
           }
-          allReviews(orderBy: createdAt_DESC) {
-            id
-            slug
-            createdAt
-            record {
-              slug
-              title
-              artist {
-                slug
+          roles {
+            elements {
+              uuid
+              name
+              created
+              edited
+              etag
+            }
+          }
+          tags {
+            elements {
+              uuid
+              name
+              etag
+              tagFamily {
                 name
+                uuid
               }
             }
-            title
-            review
-            rating
-            comments {
-              body
+          }
+          tagFamilies {
+            elements {
+              uuid
+              name
+              etag
+            }
+          }
+          nodes {
+            elements {
+              uuid
+              schema {
+                name
+                uuid
+              }
+              language
+              parent {
+                uuid
+              }
+              children {
+                elements {
+                  uuid
+                }
+              }
+              path
+              fields {
+                ... on vehicle {
+                  name
+                  niceUrl
+                  weight
+                  SKU
+                  stocklevel
+                  slug
+                  description
+                  vehicleImage {
+                    uuid
+                    path
+                    fields {
+                      ... on vehicleImage {
+                        image {
+                          width
+                          height
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on category {
+                  name
+                  slug
+                  description
+                }
+                ... on vehicleImage {
+                  name
+                  image {
+                    fileName
+                    width
+                    height
+                    sha512sum
+                    fileSize
+                    mimeType
+                    dominantColor
+                  }
+                }
+              }
             }
           }
         }`,
@@ -74,8 +121,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Gatsby with GraphCMS',
-        short_name: 'Gatsby GCMS',
+        name: 'Gatsby with Gentics Mesh',
+        short_name: 'Gatsby Mesh',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#61045f',
