@@ -9,6 +9,10 @@ module.exports = {
       options: {
         endpoint: `https://demo.getmesh.io/api/v1/demo/graphql`,
         query: `{
+          me {
+            username
+            uuid
+          }
           users {
             elements {
               uuid
