@@ -1,6 +1,6 @@
 # gatsby-mesh-example
 
-Example of [@gentics/gatsby-source-mesh](https://github.com/mesh/gatsby-source-mesh)
+Example of [@gentics/gatsby-source-mesh](https://github.com/gentics/gatsby-source-mesh)
 Please file any issues [over there](https://github.com/gentics/gatsby-source-mesh/issues).
 
 ## Install
