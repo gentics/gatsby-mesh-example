@@ -13,7 +13,10 @@ For an overview of how things work in `Gatsby` please refer to the [Gatsby docs]
 
 You can either choose to use this example in combination with the preconfigured Gentics Mesh Demo instance which will be regularly resetted or you can run your own headless cms server via `docker run -p 8080:8080 -d gentics/mesh-demo`.
 
-In that case you need to update the `gatsby-config.js` and use `http://localhost:8080/api/v2/demo/graphql` instead.
+In that case you need to update the `gatsby-config.js` config:
+
+* `url: 'http://localhost:8080/api/v2/demo/graphql'`
+* `imageBaseUrl: 'http://localhost:8080/api/v2/demo/webroot/'`
 
 ## Deploy
 
