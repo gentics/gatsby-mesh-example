@@ -2,7 +2,7 @@
   "name": "gatsby-source-plugin-store",
   "description": "Gentics Mesh Gatsby Example",
   "version": "1.0.0",
-  "author": "Johannes Schüeth <j.schueth@gentics.com>",
+  "author": "Johannes Schüth <j.schueth@gentics.com>",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "3",
