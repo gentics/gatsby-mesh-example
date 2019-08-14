@@ -1,0 +1,32 @@
+{
+  "name": "gatsby-source-plugin-store",
+  "description": "Gentics Mesh Gatsby Example",
+  "version": "1.0.0",
+  "author": "Johannes Schüeth <j.schueth@gentics.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "3",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby": "^2.3.22",
+    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-source-graphql": "^2.0.18",
+    "postcss-preset-env": "^6.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-markdown": "^4.0.6"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "lint": "standard --fix"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "standard": "^13.1.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}

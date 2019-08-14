@@ -1,0 +1,34 @@
+.jumbotron svg {
+  max-width: 150px;
+}
+
+.product-row {
+  height: 500px;
+}
+
+.product-list .img-thumbnail {
+  height: 200px;
+  width: 100%;
+}
+
+.description {
+  max-height: 6rem;
+  overflow: hidden;
+}
+
+.product-row:hover .description {
+  overflow-y: auto;
+}
+
+.price {
+  font-size: 2.4rem;
+  margin: 1px 0 5px;
+}
+
+.product-detail .img-thumbnail {
+  width: 100%;
+}
+
+dl {
+  font-size: 16px;
+}
