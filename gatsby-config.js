@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Gentics Mesh Starter blog`,
-    imageBaseUrl: 'https://demo.getmesh.io/api/v2/demo/webroot/'
+    imageBaseUrl: 'https://demo.getmesh.io/api/v2/demo/webroot'
   },
   plugins: [
     {

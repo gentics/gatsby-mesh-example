@@ -4,9 +4,10 @@ import Layout from '../components/Layout';
 
 export default ({ data }) => {
   const vehicle = data.mesh.vehicle;
+  const imageBaseUrl = data.site.siteMetadata.imageBaseUrl;
   return (
     <Layout>
-      <ProductDetail product={vehicle} />
+      <ProductDetail product={vehicle} imageBaseUrl={imageBaseUrl} />
     </Layout>
   );
 };
@@ -48,7 +49,7 @@ function ProductDetail({product, imageBaseUrl}) {
             </div>
         </div>
         <div className="col-md-6">
-          <img alt="" className="img-thumbnail" src={`${imageBaseUrl}${product.fields.vehicleImage.path}?w=328`} />
+          <img alt="" className="img-thumbnail" src={`${imageBaseUrl}${product.fields.vehicleImage.path}?w=628`} />
         </div>
       </div>
     </div>
