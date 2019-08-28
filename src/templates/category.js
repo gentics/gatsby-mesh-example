@@ -82,7 +82,7 @@ export const query = graphql`
           fields {
             name
           }
-          children {
+          children(filter: {schema: {is: vehicle}}) {
             elements {
               ... on Mesh_vehicle {
                 path

@@ -7,7 +7,7 @@ export default () => (
     query={graphql`
       query {
         mesh {
-          categories: nodes {
+          categories: nodes(filter: {schema: {is: category}}) {
             elements {
               uuid
               path
@@ -29,7 +29,7 @@ export default () => (
           </div>
 
           <ul className="nav navbar-nav">
-            {data.mesh.categories.elements.filter(e => e.fields).map(category => (
+            {data.mesh.categories.elements.map(category => (
               <NavElement key={category.uuid} category={category} />
             ))}
           </ul>

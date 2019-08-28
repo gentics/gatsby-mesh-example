@@ -13,7 +13,7 @@ module.exports = {
         fieldName: 'mesh',
         // Gentics Mesh server url
         url: 'https://demo.getmesh.io/api/v2/demo/graphql',
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,

@@ -25,7 +25,7 @@ export default ({ children }) => (
 
         <div className="row">
             <div className="col-sm-6 col-sm-offset-3">
-                <p>This example project shows how to use Gentics Mesh in combination with Gatsby. The source is <a href="https://github.com/gentics/mesh-gatsby-example">available on GitHub</a>.</p>
+                <p>This example project shows how to use Gentics Mesh in combination with Gatsby. The source is <a href="https://github.com/gentics/gatsby-mesh-example">available on GitHub</a>.</p>
 
                 <p><a className="btn btn-primary btn-lg" href="https://getmesh.io/docs/getting-started" role="button">Learn more</a></p>
             </div>
